@@ -1,0 +1,28 @@
+{
+  "case": "duplicate_submit",
+  "user_request": "把 M01 排到 2026-11-02 19:00，我确认用 19:00。",
+  "expect": "第一次保存成功，重复提交同一请求只产生一份草稿",
+  "actual": {
+    "outcome": "saved",
+    "draft_status": "saved",
+    "draft_id": "D-M01-20261102-1900",
+    "risk_level": "none",
+    "suggested_date": "2026-11-02",
+    "suggested_slot": "19:00",
+    "pending_confirmations": [],
+    "published": false,
+    "tool_calls": 4,
+    "reasoning": "save_draft 返回 saved，草稿已写入草稿库（仅为草稿，未发布）。"
+  },
+  "runs": [
+    {
+      "outcome": "saved",
+      "draft_status": "saved",
+      "draft_id": "D-M01-20261102-1900",
+      "published": false,
+      "tool_calls": 4
+    }
+  ],
+  "draft_count_after": 1,
+  "trace_file": "examples/traces/duplicate_submit.jsonl"
+}

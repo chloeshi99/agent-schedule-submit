@@ -1,0 +1,28 @@
+{
+  "case": "missing_info",
+  "user_request": "把 M03 排到 2026-11-03 12:00。",
+  "expect": "时长与授权缺失，补查后仍缺失，阻断且不落库",
+  "actual": {
+    "outcome": "blocked",
+    "draft_status": "not_saved",
+    "draft_id": null,
+    "risk_level": "high",
+    "suggested_date": "2026-11-03",
+    "suggested_slot": null,
+    "pending_confirmations": [],
+    "published": false,
+    "tool_calls": 4,
+    "reasoning": "补查后仍存在高风险规则 ['R-AUTH']，无法自动消解，阻断排期并请求人工复核。"
+  },
+  "runs": [
+    {
+      "outcome": "blocked",
+      "draft_status": "not_saved",
+      "draft_id": null,
+      "published": false,
+      "tool_calls": 4
+    }
+  ],
+  "draft_count_after": 0,
+  "trace_file": "examples/traces/missing_info.jsonl"
+}

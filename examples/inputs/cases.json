@@ -1,0 +1,61 @@
+{
+  "description": "示例输入。与 data/cases.json 中的用例一一对应，用于 examples/outputs 下的实际输出对照。",
+  "note": "每组对应一个 CLI 命令。命令可用 --case <name> 直接复现。",
+  "inputs": [
+    {
+      "id": "normal_conflict",
+      "category": "正常排期 + 时段冲突（验收点：时段冲突、冲突调整、确认边界）",
+      "material_id": "M01",
+      "user_request": "把 M01 排到 2026-11-02 18:00，这是用户明确的硬性要求，先看看能不能排。",
+      "confirm": false,
+      "command": "python -m src.cli --case normal_conflict",
+      "expect": "18:00 被 M02 占用，建议 19:00，标记待确认，不落库"
+    },
+    {
+      "id": "normal_ok",
+      "category": "正常排期（验收点：正常排期）",
+      "material_id": "M05",
+      "user_request": "把 M05 排到 2026-11-02 10:00。",
+      "confirm": false,
+      "command": "python -m src.cli --case normal_ok",
+      "expect": "无风险无冲突，建议 10:00，等待确认，不落库"
+    },
+    {
+      "id": "missing_info",
+      "category": "素材信息缺失（验收点：素材信息缺失、补查、阻断）",
+      "material_id": "M03",
+      "user_request": "把 M03 排到 2026-11-03 12:00。",
+      "confirm": false,
+      "command": "python -m src.cli --case missing_info",
+      "expect": "时长与授权缺失，补查后仍缺失，阻断且不落库"
+    },
+    {
+      "id": "rule_risk",
+      "category": "规则风险（验收点：规则风险、阻断）",
+      "material_id": "M04",
+      "user_request": "把 M04 排到 2026-11-02 19:00。",
+      "confirm": false,
+      "command": "python -m src.cli --case rule_risk",
+      "expect": "敏感标签与禁用词风险，补查复核结论后仍为高风险，阻断"
+    },
+    {
+      "id": "save_failure",
+      "category": "工具失败（验收点：保存失败、不得谎报成功）",
+      "material_id": "M06",
+      "user_request": "把 M06 排到 2026-11-02 09:00，素材那边写入可能有问题，照常存一下。",
+      "confirm": true,
+      "command": "python -m src.cli --case save_failure",
+      "expect": "保存草稿失败，明确返回 failed，draft_id 为空，草稿库不增加"
+    },
+    {
+      "id": "duplicate_submit_twice",
+      "category": "重复提交（验收点：重复提交、防重复）",
+      "material_id": "M01",
+      "user_request": "把 M01 排到 2026-11-02 19:00，我确认用 19:00。",
+      "confirm": true,
+      "repeat": 2,
+      "command": "python -m src.cli --case duplicate_submit_twice",
+      "expect": "连续两次相同保存请求，第一次 saved 第二次 duplicate，草稿表只有一行"
+    }
+  ]
+}

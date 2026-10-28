@@ -1,0 +1,36 @@
+{
+  "case": "normal_ok",
+  "user_request": "把 M05 排到 2026-11-02 10:00。",
+  "expect": "无风险无冲突，建议 10:00，等待确认",
+  "actual": {
+    "outcome": "needs_confirmation",
+    "draft_status": "not_saved",
+    "draft_id": null,
+    "risk_level": "none",
+    "suggested_date": "2026-11-02",
+    "suggested_slot": "10:00",
+    "pending_confirmations": [
+      {
+        "type": "confirm_schedule",
+        "field": "schedule",
+        "original": "10:00",
+        "proposed": "10:00",
+        "question": "确认按 2026-11-02 10:00 保存排期草稿吗？"
+      }
+    ],
+    "published": false,
+    "tool_calls": 3,
+    "reasoning": "目标时段空闲且无阻断风险，但用户尚未确认，故只输出建议不落库。"
+  },
+  "runs": [
+    {
+      "outcome": "needs_confirmation",
+      "draft_status": "not_saved",
+      "draft_id": null,
+      "published": false,
+      "tool_calls": 3
+    }
+  ],
+  "draft_count_after": 0,
+  "trace_file": "examples/traces/normal_ok.jsonl"
+}

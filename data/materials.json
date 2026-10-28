@@ -1,0 +1,131 @@
+{
+  "materials": {
+    "M01": {
+      "id": "M01",
+      "title": "开学季校园宣传片",
+      "content_type": "video",
+      "duration_sec": 60,
+      "copy_text": "欢迎来到我们的校园，一起开启新学期。",
+      "sensitivity_tags": [],
+      "review_notes": null,
+      "authorization": {
+        "licensed": true,
+        "license_id": "LIC-2026-1024",
+        "valid_until": "2026-12-31"
+      },
+      "channels": ["视频号", "抖音"],
+      "publish_requirement": {
+        "date": "2026-11-02",
+        "time": "18:00",
+        "mode": "exact",
+        "hard": true,
+        "note": "用户硬性要求 18:00 上线"
+      }
+    },
+    "M02": {
+      "id": "M02",
+      "title": "校招开放日预热视频",
+      "content_type": "video",
+      "duration_sec": 30,
+      "copy_text": "校招开放日即将开启。",
+      "sensitivity_tags": [],
+      "review_notes": "已通过人工复核，无敏感片段。",
+      "authorization": {
+        "licensed": true,
+        "license_id": "LIC-2026-0881",
+        "valid_until": "2026-11-30"
+      },
+      "channels": ["视频号"],
+      "publish_requirement": {
+        "date": "2026-11-02",
+        "time": "18:00",
+        "mode": "exact",
+        "hard": true
+      }
+    },
+    "M03": {
+      "id": "M03",
+      "title": "社团纳新海报",
+      "content_type": "image",
+      "copy_text": "社团纳新，欢迎加入。",
+      "sensitivity_tags": [],
+      "review_notes": null,
+      "channels": ["公众号"],
+      "publish_requirement": {
+        "date": "2026-11-03",
+        "time": "12:00",
+        "mode": "exact",
+        "hard": true
+      },
+      "notes": "该素材上传时未填写时长，且授权信息缺失"
+    },
+    "M04": {
+      "id": "M04",
+      "title": "金融理财推广短片",
+      "content_type": "video",
+      "duration_sec": 45,
+      "copy_text": "国家级理财计划，最稳的选择。",
+      "sensitivity_tags": ["financial_promotion", "unreviewed_claim"],
+      "review_notes": null,
+      "authorization": {
+        "licensed": false,
+        "license_id": null,
+        "valid_until": null
+      },
+      "channels": ["抖音"],
+      "publish_requirement": {
+        "date": "2026-11-02",
+        "time": "19:00",
+        "mode": "exact",
+        "hard": true
+      }
+    },
+    "M05": {
+      "id": "M05",
+      "title": "校园导览图文",
+      "content_type": "image",
+      "duration_sec": 0,
+      "copy_text": "新生入学指南，请查收。",
+      "sensitivity_tags": [],
+      "review_notes": "图文已过审。",
+      "authorization": {
+        "licensed": true,
+        "license_id": "LIC-2026-1002",
+        "valid_until": "2027-01-31"
+      },
+      "channels": ["公众号", "小红书"],
+      "publish_requirement": {
+        "date": "2026-11-02",
+        "time": "10:00",
+        "mode": "exact",
+        "hard": true
+      }
+    },
+    "M06": {
+      "id": "M06",
+      "title": "实验室开放日预告",
+      "content_type": "video",
+      "duration_sec": 30,
+      "copy_text": "实验室开放日，欢迎参观。",
+      "sensitivity_tags": [],
+      "review_notes": "已过审。",
+      "authorization": {
+        "licensed": true,
+        "license_id": "LIC-2026-0777",
+        "valid_until": "2026-11-20"
+      },
+      "channels": ["视频号"],
+      "publish_requirement": {
+        "date": "2026-11-02",
+        "time": "09:00",
+        "mode": "exact",
+        "hard": true
+      }
+    }
+  },
+  "simulated_failures": {
+    "M06": {
+      "save_draft": "数据库写入失败：disk I/O error（注入故障，用于验证保存失败场景）"
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "case": "save_failure",
+  "user_request": "把 M06 排到 2026-11-02 09:00，素材那边写入可能有问题，照常存一下。",
+  "expect": "保存草稿失败，明确返回 failed，不得谎报成功",
+  "actual": {
+    "outcome": "failed",
+    "draft_status": "failed",
+    "draft_id": null,
+    "risk_level": "none",
+    "suggested_date": "2026-11-02",
+    "suggested_slot": "09:00",
+    "pending_confirmations": [],
+    "published": false,
+    "tool_calls": 4,
+    "reasoning": "重试后保存仍失败，如实返回 failed，草稿未写入。"
+  },
+  "runs": [
+    {
+      "outcome": "failed",
+      "draft_status": "failed",
+      "draft_id": null,
+      "published": false,
+      "tool_calls": 4
+    }
+  ],
+  "draft_count_after": 0,
+  "trace_file": "examples/traces/save_failure.jsonl"
+}

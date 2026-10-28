@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "draft_id": "D-M01-20261102-1900",
+    "request_key": "M01|2026-11-02|19:00|视频号|b0c3524006cc442b",
+    "material_id": "M01",
+    "date": "2026-11-02",
+    "start_time": "19:00",
+    "channel": "视频号",
+    "risk_level": "none",
+    "status": "draft",
+    "payload": "{\"note\": null, \"published\": false, \"kind\": \"publish_schedule_draft\"}",
+    "content_hash": "b0c3524006cc442b",
+    "created_at": "2026-10-28T11:52:58+00:00"
+  },
+  {
+    "id": 1,
+    "draft_id": "D-M01-20261102-1900",
+    "request_key": "M01|2026-11-02|19:00|视频号|b0c3524006cc442b",
+    "material_id": "M01",
+    "date": "2026-11-02",
+    "start_time": "19:00",
+    "channel": "视频号",
+    "risk_level": "none",
+    "status": "draft",
+    "payload": "{\"note\": null, \"published\": false, \"kind\": \"publish_schedule_draft\"}",
+    "content_hash": "b0c3524006cc442b",
+    "created_at": "2026-10-28T11:52:58+00:00"
+  }
+]

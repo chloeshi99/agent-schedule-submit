@@ -1,0 +1,51 @@
+{
+  "version": "2026.10",
+  "publish_window": {
+    "start": "08:00",
+    "end": "22:00",
+    "granularity_min": 30
+  },
+  "rules": [
+    {
+      "id": "R-AUTH",
+      "name": "授权凭证校验",
+      "severity": "high",
+      "check": "authorization",
+      "message": "素材缺少有效授权凭证，禁止排期",
+      "supplement_hint": "补查授权类型、授权方与授权有效期"
+    },
+    {
+      "id": "R-DUR",
+      "name": "时长/规格完整性",
+      "severity": "medium",
+      "check": "duration",
+      "message": "素材时长缺失或非法，无法计算占用时段",
+      "supplement_hint": "补查素材时长与分辨率"
+    },
+    {
+      "id": "R-SENS",
+      "name": "敏感标签复核",
+      "severity": "high",
+      "check": "sensitivity",
+      "message": "素材包含敏感标签，需人工复核后方可排期",
+      "supplement_hint": "补查敏感片段定位与复核结论"
+    },
+    {
+      "id": "R-WORD",
+      "name": "禁用词检查",
+      "severity": "medium",
+      "check": "forbidden_words",
+      "message": "文案命中禁用词，需文案修改后再排期",
+      "supplement_hint": null,
+      "banned_words": ["国家级", "最好", "第一"]
+    },
+    {
+      "id": "R-CHAN",
+      "name": "渠道匹配",
+      "severity": "low",
+      "check": "channel",
+      "message": "渠道信息缺失或与内容类型不匹配，仅作提示",
+      "supplement_hint": "补查投放渠道"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "version": "2026.10",
+  "occupied": [
+    {
+      "id": "S-M02-EVENING",
+      "material_id": "M02",
+      "date": "2026-11-02",
+      "start": "18:00",
+      "duration_sec": 30,
+      "channel": "视频号",
+      "status": "confirmed"
+    },
+    {
+      "id": "S-M02-NOON",
+      "material_id": "M02",
+      "date": "2026-11-02",
+      "start": "12:00",
+      "duration_sec": 30,
+      "channel": "抖音",
+      "status": "confirmed"
+    }
+  ],
+  "conflict_granularity": "hour",
+  "conflict_granularity_note": "同一自然小时内已有投放即视为时段冲突，避免相邻碎片时段挤占传播节奏。"
+}

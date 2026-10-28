@@ -1,0 +1,74 @@
+{
+  "description": "运行用例定义。每个用例指定素材与用户输入，CLI 通过 --case 读取。expect_* 字段为可自动断言的期望值（assert_* 为 true 时生效）。",
+  "cases": {
+    "normal_conflict": {
+      "material_id": "M01",
+      "user_request": "把 M01 排到 2026-11-02 18:00，这是用户明确的硬性要求，先看看能不能排。",
+      "confirm": false,
+      "expect": "18:00 被 M02 占用，应给出 19:00 建议并标记待确认，不落库",
+      "assert_outcome": "needs_confirmation",
+      "assert_draft_status": "not_saved",
+      "assert_suggested_slot": "19:00",
+      "assert_published": false
+    },
+    "normal_ok": {
+      "material_id": "M05",
+      "user_request": "把 M05 排到 2026-11-02 10:00。",
+      "confirm": false,
+      "expect": "无风险无冲突，建议 10:00，等待确认",
+      "assert_outcome": "needs_confirmation",
+      "assert_draft_status": "not_saved",
+      "assert_suggested_slot": "10:00",
+      "assert_published": false
+    },
+    "missing_info": {
+      "material_id": "M03",
+      "user_request": "把 M03 排到 2026-11-03 12:00。",
+      "confirm": false,
+      "expect": "时长与授权缺失，补查后仍缺失，阻断且不落库",
+      "assert_outcome": "blocked",
+      "assert_draft_status": "not_saved",
+      "assert_suggested_slot": null,
+      "assert_published": false
+    },
+    "rule_risk": {
+      "material_id": "M04",
+      "user_request": "把 M04 排到 2026-11-02 19:00。",
+      "confirm": false,
+      "expect": "敏感标签与禁用词风险，补查复核结论后仍为高风险，阻断",
+      "assert_outcome": "blocked",
+      "assert_draft_status": "not_saved",
+      "assert_suggested_slot": null,
+      "assert_published": false
+    },
+    "save_failure": {
+      "material_id": "M06",
+      "user_request": "把 M06 排到 2026-11-02 09:00，素材那边写入可能有问题，照常存一下。",
+      "confirm": true,
+      "expect": "保存草稿失败，明确返回 failed，不得谎报成功",
+      "assert_outcome": "failed",
+      "assert_draft_status": "failed",
+      "assert_draft_id": null,
+      "assert_published": false
+    },
+    "duplicate_submit": {
+      "material_id": "M01",
+      "user_request": "把 M01 排到 2026-11-02 19:00，我确认用 19:00。",
+      "confirm": true,
+      "expect": "第一次保存成功，重复提交同一请求只产生一份草稿",
+      "assert_outcome": "saved",
+      "assert_draft_status": "saved",
+      "assert_published": false
+    },
+    "duplicate_submit_twice": {
+      "material_id": "M01",
+      "user_request": "把 M01 排到 2026-11-02 19:00，我确认用 19:00。",
+      "confirm": true,
+      "repeat": 2,
+      "expect": "连续两次相同保存请求，草稿表只有一行",
+      "assert_outcome": "saved",
+      "assert_draft_status": "duplicate",
+      "assert_published": false
+    }
+  }
+}

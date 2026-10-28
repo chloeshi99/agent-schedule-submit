@@ -1,0 +1,36 @@
+{
+  "case": "normal_conflict",
+  "user_request": "把 M01 排到 2026-11-02 18:00，这是用户明确的硬性要求，先看看能不能排。",
+  "expect": "18:00 被 M02 占用，应给出 19:00 建议并标记待确认，不落库",
+  "actual": {
+    "outcome": "needs_confirmation",
+    "draft_status": "not_saved",
+    "draft_id": null,
+    "risk_level": "none",
+    "suggested_date": "2026-11-02",
+    "suggested_slot": "19:00",
+    "pending_confirmations": [
+      {
+        "type": "change_publish_time",
+        "field": "publish_requirement.time",
+        "original": "18:00",
+        "proposed": "19:00",
+        "question": "18:00 已被占用，是否改用 19:00？未确认前不会保存草稿。"
+      }
+    ],
+    "published": false,
+    "tool_calls": 3,
+    "reasoning": "query_slots 观测到 18:00 已被 M02 占用；按同一冲突粒度检索到最近可用时段 19:00。由于用户对该时间是硬性要求，模型不得擅自更改，改为提交替代建议并请求确认。"
+  },
+  "runs": [
+    {
+      "outcome": "needs_confirmation",
+      "draft_status": "not_saved",
+      "draft_id": null,
+      "published": false,
+      "tool_calls": 3
+    }
+  ],
+  "draft_count_after": 0,
+  "trace_file": "examples/traces/normal_conflict.jsonl"
+}
