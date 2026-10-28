@@ -19,6 +19,7 @@
 | **设计取舍** | [docs/02-solution.md](docs/02-solution.md) |
 | **已知限制（重要）** | [docs/03-evaluation.md](docs/03-evaluation.md) 第 7 节 |
 | **AI 辅助开发说明** | [docs/04-ai-usage.md](docs/04-ai-usage.md) 第 8 节 |
+| **我能否一键核对全部验收点？** | `python -m scripts.check_delivery`（40 项逐条自检，输出 OK/FAIL） |
 | **复盘与下一步** | [docs/05-retrospective.md](docs/05-retrospective.md) |
 
 ## 快速开始
@@ -40,6 +41,9 @@ python -m scripts.gen_outputs
 
 # 5. 提交前密钥/隐私自查
 python -m scripts.check_secrets
+
+# 6. 交付自检（逐条核对题目要求，40 项）
+python -m scripts.check_delivery
 ```
 
 自由请求：
