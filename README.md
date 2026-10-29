@@ -193,3 +193,33 @@ python -m src.cli --material M01 --request "把 M01 排到 2026-11-02 18:00" --j
 - Python 3.10+（开发环境 3.12.7）
 - 运行时代**零第三方依赖**（仅标准库）；测试需 `pytest`
 - `.env` 无需配置
+
+## 提交信息
+
+| 字段 | 值 |
+|---|---|
+| **题号** | `项目1` —— 素材审核与发布排期 Agent |
+| **GitHub URL** | https://github.com/chloeshi99/agent-schedule-submit |
+| **最终 commit SHA** | 本仓库 `main` 分支的最新提交 —— 取 `git rev-parse HEAD`，或见 [commits/main](https://github.com/chloeshi99/agent-schedule-submit/commits/main) |
+| **仓库可见性** | Public（公开可读，评审账号无需授权） |
+| **默认分支** | `main` |
+
+> 说明：commit SHA 无法预写入自身所在的提交（写入即改变 SHA）。
+> 上面的链接会直接显示当前 SHA；提交表单中填写 `git rev-parse HEAD` 的输出即可。
+
+### 从零复现
+
+```bash
+git clone https://github.com/chloeshi99/agent-schedule-submit.git
+cd agent-schedule-submit
+pip install -r requirements.txt
+
+python -m src.cli --case all            # 7 个用例（含全部验收点）
+python -m pytest tests -q               # 测试套件
+python -m scripts.check_delivery         # 交付自检
+python -m scripts.check_secrets          # 密钥/隐私自查
+```
+
+无需任何环境变量、无需 API Key、无需联网 —— 默认走离线 Mock 决策通道。
+
+> **项目边界**：本项目只产出**排期草稿**，系统不具备真实发布能力（`published` 恒为 `false`）。
